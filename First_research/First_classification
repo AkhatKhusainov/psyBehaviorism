@@ -1,0 +1,46 @@
+import anthropic
+client = anthropic.Anthropic(
+  api_key=claude_key,
+)
+
+def send_request(file_content):
+  global all,correct
+  response = client.messages.create(
+    model="claude-3-5-sonnet-20240620",
+    max_tokens=1024,
+    temperature = 0.0, # https://docs.anthropic.com/en/api/complete
+    messages=[
+      #{"role": "user", "content": "Напиши в ответ только категорию этого текста, одну из: деструктивный, конструктивный, информационный" + file_content}
+      {"role": "user", "content": "Поведение автора текста определяется тем, как текст влияет на читателя. \
+      Есть три типа поведения: деструктивный, конструктивный, информативный. \
+      Деструктивный тип: тексты, содержащие неконструктивную критику, явно и неявно призывающие к необдуманным разрушительным действиям, оскорбляющие отдельные социальные группы, направленные на нагнетание беспокойства и паники.\
+      Информативный тип: тексты, содержащие аналитику, статистические данные, НЕ содержащие призывов к каким-либо действиям. \
+      Конструктивный тип: тексты, направленные на формирование спокойного отношения к происходящим событиям, призывающие к созидательным действиям, содержащие успокающе-ободряющую лексику и в отдельных случаях иронию. \
+      Определи тип поведения для следующего текста и ответь одним словом:\n\n" + file_content}
+      #Определи только один тип поведения для следующего текста:\n\n" + file_content}
+    ]
+)
+  #print(message.content)
+  return response
+
+rand_indx = np.random.randint(data_size)
+
+print(indx[rand_indx])
+print(data[indx[rand_indx]])
+print(labels[indx[rand_indx]])
+
+response = send_request(data[indx[rand_indx]])
+print(response.content[0].text)
+
+if response.content[0].text == cat_name[0]:
+  resp_cat = 0
+if response.content[0].text == cat_name[1]:
+  resp_cat = 1
+if response.content[0].text == cat_name[2]:
+  resp_cat = 2
+
+print(resp_cat)
+print(labels[indx[rand_indx]] == resp_cat)
+
+
+
