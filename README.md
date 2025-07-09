@@ -21,7 +21,7 @@ Behavior prediction is achieved through qualitative analysis of texts at any sca
 │   └── pikab_pars4.py        # Необходимо ввести имена авторов в список и запустить
 ├── First_research/
 │   ├── Classification/       # Первичная классификация (простой промт)
-│   └── Доработка/            # Папка для доработок
+│   └── Доработка/            # В процессе дорботки
 ├── Second_research/
 │   ├── table_probabilities_features.py  # Создает таблицу распределения вероятностей и признаков (0-3)
 │   ├── feature_selection.py             # Сокращает признаки до 20
