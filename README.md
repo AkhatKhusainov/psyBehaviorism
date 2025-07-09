@@ -9,7 +9,7 @@ Behavior prediction is achieved through qualitative analysis of texts at any sca
 Прогнозирование поведения осуществляться через квалитативный анализ текстов любого объема с использованием возможностей больших языковых моделей к интерпретации и рефлексии через итеративный диалог.
 
 В данном репозитории представлен пайплайн разработки:
-"""
+'''
 .
 ├── LiveJournal_parser/
 │   ├── commander.py   #необходимо ввести имена нужных авторов в список и запустить 
@@ -28,4 +28,4 @@ Behavior prediction is achieved through qualitative analysis of texts at any sca
 │   └── Statistics_output.py     #подсчитывает метрики, визуализирует матрицу ошибок
 └── README.md
 
-"""
+'''
